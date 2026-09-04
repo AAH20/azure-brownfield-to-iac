@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://a2zsoc.com/schemas/estate2code/canonical-inventory.schema.json",
+  "title": "Estate2Code canonical Azure inventory",
+  "type": "object",
+  "required": ["resources"],
+  "properties": {
+    "resources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "type", "location"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "name": {"type": "string", "minLength": 1},
+          "type": {"type": "string", "minLength": 1},
+          "resourceGroup": {"type": "string"},
+          "location": {"type": "string"},
+          "tags": {"type": "object", "additionalProperties": {"type": ["string", "number", "boolean"]}},
+          "properties": {"type": "object"},
+          "depends_on": {"type": "array", "items": {"type": "string"}}
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": false
+}

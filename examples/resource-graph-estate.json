@@ -1,0 +1,93 @@
+{
+  "totalRecords": 8,
+  "data": [
+    {
+      "id": "/subscriptions/demo/resourceGroups/rg-commerce-prod",
+      "name": "rg-commerce-prod",
+      "type": "Microsoft.Resources/resourceGroups",
+      "location": "westeurope",
+      "tags": {"environment": "prod", "owner": "platform"},
+      "depends_on": []
+    },
+    {
+      "id": "/subscriptions/demo/resourceGroups/rg-commerce-prod/providers/Microsoft.Network/networkSecurityGroups/nsg-checkout",
+      "name": "nsg-checkout",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "resourceGroup": "rg-commerce-prod",
+      "location": "westeurope",
+      "tags": {"environment": "prod"},
+      "properties": {"securityRules": []},
+      "depends_on": ["/subscriptions/demo/resourceGroups/rg-commerce-prod"]
+    },
+    {
+      "id": "/subscriptions/demo/resourceGroups/rg-commerce-prod/providers/Microsoft.Network/routeTables/rt-checkout",
+      "name": "rt-checkout",
+      "type": "Microsoft.Network/routeTables",
+      "resourceGroup": "rg-commerce-prod",
+      "location": "westeurope",
+      "tags": {"environment": "prod"},
+      "properties": {"disableBgpRoutePropagation": false, "routes": []},
+      "depends_on": ["/subscriptions/demo/resourceGroups/rg-commerce-prod"]
+    },
+    {
+      "id": "/subscriptions/demo/resourceGroups/rg-commerce-prod/providers/Microsoft.Network/virtualNetworks/vnet-commerce",
+      "name": "vnet-commerce",
+      "type": "Microsoft.Network/virtualNetworks",
+      "resourceGroup": "rg-commerce-prod",
+      "location": "westeurope",
+      "tags": {"environment": "prod", "cost-center": "digital-sales"},
+      "properties": {"addressSpace": {"addressPrefixes": ["10.40.0.0/16"]}},
+      "depends_on": [
+        "/subscriptions/demo/resourceGroups/rg-commerce-prod",
+        "/subscriptions/demo/resourceGroups/rg-commerce-prod/providers/Microsoft.Network/networkSecurityGroups/nsg-checkout",
+        "/subscriptions/demo/resourceGroups/rg-commerce-prod/providers/Microsoft.Network/routeTables/rt-checkout"
+      ]
+    },
+    {
+      "id": "/subscriptions/demo/resourceGroups/rg-commerce-prod/providers/Microsoft.Network/privateDnsZones/privatelink.blob.core.windows.net",
+      "name": "privatelink.blob.core.windows.net",
+      "type": "Microsoft.Network/privateDnsZones",
+      "resourceGroup": "rg-commerce-prod",
+      "location": "global",
+      "tags": {"environment": "prod"},
+      "properties": {},
+      "depends_on": [
+        "/subscriptions/demo/resourceGroups/rg-commerce-prod",
+        "/subscriptions/demo/resourceGroups/rg-commerce-prod/providers/Microsoft.Network/virtualNetworks/vnet-commerce"
+      ]
+    },
+    {
+      "id": "/subscriptions/demo/resourceGroups/rg-commerce-prod/providers/Microsoft.Storage/storageAccounts/stcommerceprod01",
+      "name": "stcommerceprod01",
+      "type": "Microsoft.Storage/storageAccounts",
+      "resourceGroup": "rg-commerce-prod",
+      "location": "westeurope",
+      "tags": {"environment": "prod", "data-class": "confidential"},
+      "properties": {"kind": "StorageV2", "sku": {"name": "Standard_ZRS"}, "supportsHttpsTrafficOnly": true},
+      "depends_on": [
+        "/subscriptions/demo/resourceGroups/rg-commerce-prod",
+        "/subscriptions/demo/resourceGroups/rg-commerce-prod/providers/Microsoft.Network/privateDnsZones/privatelink.blob.core.windows.net"
+      ]
+    },
+    {
+      "id": "/subscriptions/demo/resourceGroups/rg-commerce-prod/providers/Microsoft.OperationalInsights/workspaces/law-commerce-prod",
+      "name": "law-commerce-prod",
+      "type": "Microsoft.OperationalInsights/workspaces",
+      "resourceGroup": "rg-commerce-prod",
+      "location": "westeurope",
+      "tags": {"environment": "prod"},
+      "properties": {"sku": {"name": "PerGB2018"}, "retentionInDays": 30},
+      "depends_on": ["/subscriptions/demo/resourceGroups/rg-commerce-prod"]
+    },
+    {
+      "id": "/subscriptions/demo/resourceGroups/rg-commerce-prod/providers/Microsoft.KeyVault/vaults/kv-commerce-prod",
+      "name": "kv-commerce-prod",
+      "type": "Microsoft.KeyVault/vaults",
+      "resourceGroup": "rg-commerce-prod",
+      "location": "westeurope",
+      "tags": {"environment": "prod"},
+      "properties": {"enableRbacAuthorization": true},
+      "depends_on": ["/subscriptions/demo/resourceGroups/rg-commerce-prod"]
+    }
+  ]
+}

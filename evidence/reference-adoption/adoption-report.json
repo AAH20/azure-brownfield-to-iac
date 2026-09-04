@@ -1,0 +1,231 @@
+{
+  "schema_version": "0.1.0",
+  "generated_at": "2026-09-04T23:15:43.226025+00:00",
+  "evidence_class": "simulated",
+  "summary": {
+    "resources": 8,
+    "managed": 1,
+    "unmanaged": 7,
+    "terraform_supported": 7,
+    "terraform_coverage_percent": 87.5,
+    "warnings": 0
+  },
+  "ownership": [
+    {
+      "resource_id": "/subscriptions/demo/resourceGroups/rg-commerce-prod",
+      "status": "unmanaged",
+      "terraform_address": null
+    },
+    {
+      "resource_id": "/subscriptions/demo/resourceGroups/rg-commerce-prod/providers/Microsoft.Network/networkSecurityGroups/nsg-checkout",
+      "status": "unmanaged",
+      "terraform_address": null
+    },
+    {
+      "resource_id": "/subscriptions/demo/resourceGroups/rg-commerce-prod/providers/Microsoft.Network/routeTables/rt-checkout",
+      "status": "unmanaged",
+      "terraform_address": null
+    },
+    {
+      "resource_id": "/subscriptions/demo/resourceGroups/rg-commerce-prod/providers/Microsoft.Network/virtualNetworks/vnet-commerce",
+      "status": "unmanaged",
+      "terraform_address": null
+    },
+    {
+      "resource_id": "/subscriptions/demo/resourceGroups/rg-commerce-prod/providers/Microsoft.Network/privateDnsZones/privatelink.blob.core.windows.net",
+      "status": "unmanaged",
+      "terraform_address": null
+    },
+    {
+      "resource_id": "/subscriptions/demo/resourceGroups/rg-commerce-prod/providers/Microsoft.Storage/storageAccounts/stcommerceprod01",
+      "status": "unmanaged",
+      "terraform_address": null
+    },
+    {
+      "resource_id": "/subscriptions/demo/resourceGroups/rg-commerce-prod/providers/Microsoft.OperationalInsights/workspaces/law-commerce-prod",
+      "status": "managed",
+      "terraform_address": "azurerm_log_analytics_workspace.existing"
+    },
+    {
+      "resource_id": "/subscriptions/demo/resourceGroups/rg-commerce-prod/providers/Microsoft.KeyVault/vaults/kv-commerce-prod",
+      "status": "unmanaged",
+      "terraform_address": null
+    }
+  ],
+  "dependency_order": [
+    "/subscriptions/demo/resourceGroups/rg-commerce-prod",
+    "/subscriptions/demo/resourceGroups/rg-commerce-prod/providers/Microsoft.KeyVault/vaults/kv-commerce-prod",
+    "/subscriptions/demo/resourceGroups/rg-commerce-prod/providers/Microsoft.Network/networkSecurityGroups/nsg-checkout",
+    "/subscriptions/demo/resourceGroups/rg-commerce-prod/providers/Microsoft.Network/routeTables/rt-checkout",
+    "/subscriptions/demo/resourceGroups/rg-commerce-prod/providers/Microsoft.Network/virtualNetworks/vnet-commerce",
+    "/subscriptions/demo/resourceGroups/rg-commerce-prod/providers/Microsoft.Network/privateDnsZones/privatelink.blob.core.windows.net",
+    "/subscriptions/demo/resourceGroups/rg-commerce-prod/providers/Microsoft.OperationalInsights/workspaces/law-commerce-prod",
+    "/subscriptions/demo/resourceGroups/rg-commerce-prod/providers/Microsoft.Storage/storageAccounts/stcommerceprod01"
+  ],
+  "warnings": [],
+  "terraform_coverage": [
+    {
+      "resource_id": "/subscriptions/demo/resourceGroups/rg-commerce-prod",
+      "status": "scaffolded",
+      "target": "azurerm_resource_group.rg_commerce_prod",
+      "preserved": [
+        "name",
+        "location",
+        "tags"
+      ],
+      "manual_review": [
+        "properties not explicitly listed as preserved",
+        "provider defaults",
+        "sensitive values"
+      ]
+    },
+    {
+      "resource_id": "/subscriptions/demo/resourceGroups/rg-commerce-prod/providers/Microsoft.KeyVault/vaults/kv-commerce-prod",
+      "status": "unsupported",
+      "preserved": [],
+      "manual_review": [
+        "all properties"
+      ]
+    },
+    {
+      "resource_id": "/subscriptions/demo/resourceGroups/rg-commerce-prod/providers/Microsoft.Network/networkSecurityGroups/nsg-checkout",
+      "status": "scaffolded",
+      "target": "azurerm_network_security_group.nsg_checkout",
+      "preserved": [
+        "name",
+        "location",
+        "tags"
+      ],
+      "manual_review": [
+        "properties not explicitly listed as preserved",
+        "provider defaults",
+        "sensitive values"
+      ]
+    },
+    {
+      "resource_id": "/subscriptions/demo/resourceGroups/rg-commerce-prod/providers/Microsoft.Network/routeTables/rt-checkout",
+      "status": "scaffolded",
+      "target": "azurerm_route_table.rt_checkout",
+      "preserved": [
+        "name",
+        "location",
+        "tags",
+        "properties.disableBgpRoutePropagation"
+      ],
+      "manual_review": [
+        "properties not explicitly listed as preserved",
+        "provider defaults",
+        "sensitive values"
+      ]
+    },
+    {
+      "resource_id": "/subscriptions/demo/resourceGroups/rg-commerce-prod/providers/Microsoft.Network/virtualNetworks/vnet-commerce",
+      "status": "scaffolded",
+      "target": "azurerm_virtual_network.vnet_commerce",
+      "preserved": [
+        "name",
+        "location",
+        "tags",
+        "properties.addressSpace.addressPrefixes"
+      ],
+      "manual_review": [
+        "properties not explicitly listed as preserved",
+        "provider defaults",
+        "sensitive values"
+      ]
+    },
+    {
+      "resource_id": "/subscriptions/demo/resourceGroups/rg-commerce-prod/providers/Microsoft.Network/privateDnsZones/privatelink.blob.core.windows.net",
+      "status": "scaffolded",
+      "target": "azurerm_private_dns_zone.privatelink_blob_core_windows_net",
+      "preserved": [
+        "name",
+        "tags"
+      ],
+      "manual_review": [
+        "properties not explicitly listed as preserved",
+        "provider defaults",
+        "sensitive values"
+      ]
+    },
+    {
+      "resource_id": "/subscriptions/demo/resourceGroups/rg-commerce-prod/providers/Microsoft.OperationalInsights/workspaces/law-commerce-prod",
+      "status": "already-managed",
+      "target": "azurerm_log_analytics_workspace.law_commerce_prod",
+      "preserved": [
+        "name",
+        "location",
+        "tags",
+        "properties.sku.name",
+        "properties.retentionInDays"
+      ],
+      "manual_review": [
+        "properties not explicitly listed as preserved",
+        "provider defaults",
+        "sensitive values"
+      ]
+    },
+    {
+      "resource_id": "/subscriptions/demo/resourceGroups/rg-commerce-prod/providers/Microsoft.Storage/storageAccounts/stcommerceprod01",
+      "status": "scaffolded",
+      "target": "azurerm_storage_account.stcommerceprod01",
+      "preserved": [
+        "name",
+        "location",
+        "tags",
+        "properties.sku"
+      ],
+      "manual_review": [
+        "properties not explicitly listed as preserved",
+        "provider defaults",
+        "sensitive values"
+      ]
+    }
+  ],
+  "bicep_coverage": [
+    {
+      "resource_id": "/subscriptions/demo/resourceGroups/rg-commerce-prod",
+      "status": "manifest-only",
+      "reason": "resource-group scope boundary"
+    },
+    {
+      "resource_id": "/subscriptions/demo/resourceGroups/rg-commerce-prod/providers/Microsoft.KeyVault/vaults/kv-commerce-prod",
+      "status": "unsupported"
+    },
+    {
+      "resource_id": "/subscriptions/demo/resourceGroups/rg-commerce-prod/providers/Microsoft.Network/networkSecurityGroups/nsg-checkout",
+      "status": "scaffolded",
+      "file": "bicep/rg_commerce_prod.bicep"
+    },
+    {
+      "resource_id": "/subscriptions/demo/resourceGroups/rg-commerce-prod/providers/Microsoft.Network/routeTables/rt-checkout",
+      "status": "scaffolded",
+      "file": "bicep/rg_commerce_prod.bicep"
+    },
+    {
+      "resource_id": "/subscriptions/demo/resourceGroups/rg-commerce-prod/providers/Microsoft.Network/virtualNetworks/vnet-commerce",
+      "status": "scaffolded",
+      "file": "bicep/rg_commerce_prod.bicep"
+    },
+    {
+      "resource_id": "/subscriptions/demo/resourceGroups/rg-commerce-prod/providers/Microsoft.Network/privateDnsZones/privatelink.blob.core.windows.net",
+      "status": "scaffolded",
+      "file": "bicep/rg_commerce_prod.bicep"
+    },
+    {
+      "resource_id": "/subscriptions/demo/resourceGroups/rg-commerce-prod/providers/Microsoft.OperationalInsights/workspaces/law-commerce-prod",
+      "status": "scaffolded",
+      "file": "bicep/rg_commerce_prod.bicep"
+    },
+    {
+      "resource_id": "/subscriptions/demo/resourceGroups/rg-commerce-prod/providers/Microsoft.Storage/storageAccounts/stcommerceprod01",
+      "status": "scaffolded",
+      "file": "bicep/rg_commerce_prod.bicep"
+    }
+  ],
+  "claim_boundary": "Generated code is an adoption scaffold; compilation or import does not prove semantic equivalence or production safety.",
+  "receipt": {
+    "algorithm": "sha256",
+    "content_digest": "493d083d293f937700cb5403c8688f3dee9d57537d9f0f1d685ef5ad2e248600"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "version": 4,
+  "terraform_version": "1.9.0",
+  "resources": [
+    {
+      "mode": "managed",
+      "type": "azurerm_log_analytics_workspace",
+      "name": "existing",
+      "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "/subscriptions/demo/resourceGroups/rg-commerce-prod/providers/Microsoft.OperationalInsights/workspaces/law-commerce-prod",
+            "name": "law-commerce-prod"
+          }
+        }
+      ]
+    }
+  ]
+}

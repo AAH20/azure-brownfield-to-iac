@@ -1,0 +1,25 @@
+name: Estate2Code CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Test and generate reference adoption
+        run: bash scripts/validate.sh
+      - name: Compile generated Bicep
+        run: |
+          az bicep install
+          az bicep build --file "${TMPDIR:-/tmp}/estate2code-validation/bicep/rg_commerce_prod.bicep" --outfile /tmp/estate2code-reference.json
+      - name: Build Python wheel
+        run: python3 -m pip wheel . --wheel-dir /tmp/wheels

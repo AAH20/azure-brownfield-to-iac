@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "azure-brownfield-to-iac"
+version = "0.1.0"
+description = "Turn declared Azure brownfield inventory into reviewable Terraform, OpenTofu and Bicep adoption scaffolds"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "Ahmed Hassan"}]
+keywords = ["azure", "terraform", "opentofu", "bicep", "infrastructure-as-code", "brownfield"]
+
+[project.scripts]
+estate2code = "estate2code.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
